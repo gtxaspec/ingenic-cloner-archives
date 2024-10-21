@@ -1,0 +1,444 @@
+2.5.50
+1. Add the image path to be displayed in the main interface after loading the image.
+2. Remove the reserved partition configuration and change it to partition read and write permission configuration.
+
+2.5.49.1 for Yunshi customized log file
+1. Add product name to the main interface
+2. After burning SN and MAC, store the burning result file by date. For example: yyyy-mm-dd/product-sn1234-112233445566-hhmmss.txt
+
+2.5.49
+1. Solve the error of filling DDR ID in X26xx series.
+2. Adjust the SFC NOR parameter configuration interface.
+3. Add download parameter location configuration in SFC configuration interface.
+4. Add X2600M sfcnand and mmc ota burning configuration.
+5. Add ZB25VQ128D sfcnor parameters.
+6. Add FS35SQB002G parameters
+7. Solve the problem of abnormal power failure of FS35SQA512M causing oob reading errors.
+
+2.5.48 Update all burning firmware
+1. Modify the x2600 safe burning timing configuration and operation process.
+2. Add LC35Q4GMXXX and GD5F1GQ4UExxH parameters, but no test
+3. Solve the problem that the x2600 chip does not automatically restart after burning.
+
+2.5.47
+1. Modify the problem that the sfc nor partition is not erased when it is -1 or 0. Change all firmware burning
+2. Modify get ack() timeout, default timeout does not return at the set time, then retry according to the time returned by libusb
+
+2.5.46
+1. Solve the 64M nor erase timeout problem, modify the libusb interface timeout time, and change the timeout×factor through [debug] value=1 or 2 in platform.cfg.
+2. Add compile and burn firmware operation to spi nand parameter document
+3. Solve the problem that the ddr configuration is not saved when saving as configuration, and restore the display of DDR configuration.
+4. Modify the readback specified file data overwrite, and the default file data append.
+
+2.5.45
+1. 10 sfc partitions
+2. Adjust the interface text
+3. Modify the ubi partition reserved bad block number positive film 2%, (the original ubi partition block number 1%)
+4. ddr configuration is hidden, and the debug mode is displayed
+5. Add search filtering platform and board-level configuration functions.
+6. Add read flash sfc partition size data to local
+7. Add 3.3 and 1.8v configurations to x2000 and x2600 msc gpio
+8. Modify W25Q128JVSM and W25Q256JVEM parameters.
+9. Modify FTP account password.
+
+2.5.44
+Modify the number of sfc partitions to 15 at most
+
+2.5.43.1
+X2600 adds burn-in clear write protection register.
+
+2.5.43
+Add AD101 burn-in configuration
+
+2.5.42
+Add protection bit judgment for x1000, x2000, x1600, x2600 safe burn-in, 2ms power-on and power-off delay, glicth problem occurs when eufse en pull-down enable initialization.
+
+2.5.41
+1. Add x2600h and x2600e burn-in configuration.
+2. Solve the problem of 16-byte misalignment error when RTOS does not check SHA pad signature.
+
+2.5.40
+1. Solve the problem of 60% failure in the first burn after switching board-level configuration.
+2. Add AD100 platform configuration
+
+2.5.39
+1. Update interface font size
+2. Add new reserved partition function for X2000 series
+3. Solve the problem that the parameter overwrite SPL cannot start due to the merge image without filling in the parameter offset address
+
+2.5.38
+Fix the return value error when the ECC status of Dongxin nand DS35X1GBXXX and DS35Q2GBXXX is 0x1.
+
+2.5.37
+Add x2670m burn configuration.
+
+2.5.36.1
+1. Fix the problem of online check failure.
+2. Add FS35SQA004G parameters.
+
+2.5.36
+1. Add x2600e burning configuration
+
+2.5.35
+1. Add 2670 burning configuration
+2. x2000 signature tool other signature pad 2k
+3. Fix safe burning problem
+
+2.5.34 (This version cannot be burned safely)
+1. Change the burning progress table header text size
+2. Change X2600 CPU and DDR frequency 800/400Mhz, add driver capability and other configurations to the configuration file, the old version configuration cannot be burned
+3. Update all burning firmware
+
+2.5.33 (This version cannot be burned safely)
+1. Fix multiple image loading, status bar display error.
+2. Update burning tool document.
+3. Update sfc nand all parameter ecc return value.
+4. Solve the burning file path error after loading the image.
+5. Add 3M serial port baud rate configuration for all platforms.
+
+2.5.32 (This version cannot be safely burned)
+
+1. Move adb erase function to debug page, not displayed by default, manually modify [adb] erase_uboot=1 in configs/platform.cfg when it needs to be displayed
+
+2. Modify x2600 cpu and ddr frequency
+
+3. Add rtos and debug mode to security signature tool
+
+2.5.31
+
+1. Add ddr_creator_x2600 to support x2600 and x2660 burning
+
+2.5.30
+
+1. Add support for x2580 and t41 burning
+
+2. Add sfc nand matching did2
+
+2.5.29
+
+1. Add search name or id filter nor parameter.
+
+2. X2000 safe burning delay 10ms enable efuse gpio
+
+3. Fix 1800 burning 40% failure problem
+4. Fixed the error reporting issue when burning SN_ADD type.
+5. Fixed the MMC initialization failure issue when burning firmware without selecting MMC0-2 in MMC configuration POLICY.
+6. X2500 EFUSE burning.
+7. Update the burning tool description document
+8. Update and add SPI NOR/NAND parameter document
+9. Update the safe burning tool usage document
+10. Fix OVERFLOW error
+
+2.5.28
+1. Fix x2000 burning protection bit error
+2. Add length + sn to the sn_device strategy and write to flash
+3. Pop up to select path when there is no configuration file in the burning tool directory
+4. Support mmc burning greater than 4GB
+5. Modify the merged image to add non-safe image identifier 0x1111 to 0x200 position, and fill the image blank with 0xff
+6. Add F35SQA002G parameter
+7. Modify the merged image to destroy the msc partition problem
+
+2.5.27
+1. Add sfc nand reserved space configuration
+2. Fix the merge function nor parameter error
+3. X2000 series gpio pull up register configuration
+4. Fix the forced restart failure problem
+5. Fix the export nor parameter json format
+6. Added efuse status address configuration
+
+2.5.26
+1. Adjust ddr drive capability through configuration file
+2. Use cloner ddr parameters for x1660l and x1600mn
+
+2.5.25
+Fixed the error of burning ukey1 for X2000 series.
+x1600 ddr frequency changed to 350M
+
+2.5.24
+1. Add SFC nand parameter GD5F2GQ5UE
+2. Add delay for X2000 safe burning
+3. Add two NOR parameters XM25QH32C and BY25Q256FS
+4. Add two NAND parameters GD5F2GM7UE and XCSP2AAWH
+
+2.5.23
+1. Fix the problem of slow burning SD card
+2. Update Microsoft certified burning driver
+
+2.5.22
+1. x1600 safe burning
+2. Fix the last data write timeout of burning SD card
+
+2.5.21
+1. Add the function of checking version update, click the button to download from FTP. Requires Internet connection
+2. Write DDR ID for x16xx series
+3. Add SFC frequency configuration
+4. Safe burning for x1600
+5. Fix the last data write timeout when burning SD card
+
+2.5.20
+1. Add burning configuration for 2500a and m210
+
+2.5.19.1
+1. Security lock level 3, hide loading image.
+2. CPU info length and GPIO configuration errors for x2500 sfc nand ota configuration file.
+3. Solve the problem that DDR3 type configuration file interface does not display after restarting the tool.
+
+2.5.19
+1. Support x1600l burning, add SLT configuration
+2. Solve the problem that x2100 DDR chipid error
+3. Solve the problem that the platform information does not match the platform in the status bar after clicking Cancel to modify the platform and then clicking Configure platform information
+4. Solve the problem that the ddr parameter table is empty after changing the ddr type
+5. Modify the x1021 cpu800 and ddr400M frequencies
+
+2.5.18
+1. Add efuse module
+2. Generate t series ddr parameters
+3. Add x2000 ddr creator ddr2 parameters (to support T40n and T40a)
+Note: Incompatible with the previous version configuration file
+
+2.5.17
+1. The signature tool overwrites the env crc value when modifying the spl length
+2. Add the nor parameter for exporting json format
+3. Add safe mode prompt
+4. Add efuse gpio enable status configuration
+5. Add X1600 burning configuration
+6. Add X2000H configuration and 512MDDR parameters
+7. Add FM25S01/2A parameters
+8. Reduce T30, T31, T40, X2500 DDR frequency
+
+2.5.16.1
+Fixed the problem that the x1000 and x2000 directories were not included when the ingenic image was packaged into key.bin
+
+2.5.16
+1. The nor model in the status bar of the main interface was not cleared after the board level was updated, and the load image did not update the status bar
+
+2.Fixed the problem that the 128 bytes were not filled with ddr id when the x2000 image was merged
+
+3.Updated the x2000 signature tool, and backed up 16 word header information before modifying kernel aes encryption for x-loader.
+
+2.5.15
+1.Fixed the problem that the 2.5.14 version did not report ddr creator version, efuse segment, security verison and other information after saving.
+2. Modify the size of the sfcnor partition of x2000, x2000e, x2500, x2100, and t40, and the kernel5.10 image becomes larger
+3. The status bar of the main interface displays the flash erase mode
+
+2.5.14
+1. Fix the table label update problem after switching platforms in 2.5.13
+2. Add slt related board configuration
+3. Add ota configuration for x2500
+4. Modify the file system erase block size to 32k
+
+2.5.13 (invalid, there is a problem with the board firmware configuration update table)
+1. Adjust the x2500 ddr drive strength to solve the problem of burning cards at 60%
+2. Add t40 and x2100l configurations
+3. Add x2000 license area mac | sn | license
+
+2.5.12
+1. Cancel the use of x2000 platform to distinguish ddr creator, efuse value display, secure firmware loading directory, etc.
+Add corresponding configuration items in the board-level file
+2. Display platform and flash information in the status bar of the main interface
+3. Add platform group filtering function
+4. Modify sfcnor frequency 100M
+5. Modify x2000 series mmc frequency 50M
+
+2.5.11.1
+Zhao Jiakang added decompressed image to tmp directory for Heyang Intelligent Control loading image function
+
+2.5.11
+1. Add support for x2500 (t40) burning
+2. Add support for XTX26G01C/2C nand parameters
+3. Modify ecc processing of nand GD5F2GQ5UE
+4. Modify the size of CONFIG_SYS_MALLOC_LEN in burner_x1500.h (solve the problem of burner_x1500 burning failure)
+
+2.5.10.9
+1. Add support for x2100 and t40xp burning
+2. Add support for XTX26G02E nand parameters
+
+2.5.10.8
+1. Fix the problem that x1021 and x1520 mmc cannot be burned
+2. Add x2000 efuse burning function
+3. The burning configuration interface can be enlarged
+
+2.5.10.7
+1. Modify the safe burning read efuse status from spl back to bootrom
+2. Verify mmc, nor, nand chipkey re-encryption ok
+3. Add read and write sn, mac display to the progress bar
+4. Support custom serial number in rules.cfg to increase in decimal or hexadecimal
+5. Modify the problem that the address exceeds 2G when the mmc is partially erased
+
+2.5.10.6
+1. Add ddr model name to x2000 ddr parameters
+2. Add sfc nand to x2000/m300 Burn SN/MAC
+3. Solve the problem of readback check error when ECC error can be corrected.
+
+2.5.10.5
+1. Add DDR parameter to write to flash offset 128 bytes in x2000.
+2. Add DS35X1GAXXX-1.8V parameter
+3. Remove MX35LF2G14AC parameter (no internal ECC)
+
+2.5.10.4
+1. Optimize x1521 ddr stability.
+2. Modify t series platform to use mpll frequency division
+3. Modify x2000 to safely burn chipkey
+4. Adjust x2000 to burn usb driver capability
+5. Add GD5F1GQ5UE parameters
+6. Add sfcnand ubi readback check
+7. Add sfcnor/nand partition parameter export and merge function
+
+Update 1521 ddr refresh count 3900ns
+Modify x1021, x1830, x1630, x1521, t series cpu to use mpll frequency
+Note:
+Version 2.5.9.5 modified the x1830/x1630/t series chip pll frequency division clock source 24M to apll to solve the problem of slow emmc burning
+x1021 burning stuck at 60% with the modified firmware, and can burn normally after changing to the old firmware
+Analysis of the cause: The new firmware uses apll CPU frequency, and the old firmware uses mpll
+
+2.5.10.3
+Update the security burning firmware, burn the chipkey logic and spl to remove the non-cached configuration.
+
+2.5.10.2
+Add x1521 platform
+
+2.5.10.1 version burning x1521 is unstable, because the cpu frequency mnod value does not meet the specification
+
+2.5.10
+1. Add fill flash parameters and merge image functions in the debug page
+2. Support m300 burning
+3. Add dtb configuration
+4. Add support for QS35Q2GB burning
+5. Modify x1830 and x1630 ddr frequency 600M
+6. x2000 sfcnand data to userdata
+7. sfc nand frequency reduced to 100M
+
+2.5.9.5
+Modify sclk_a source to use apll when burning t series, originally exclk
+
+2.5.9.3
+1. Modify t21 and x1021 ddr parameter size 64M, cache 16k
+2. Modify uart7 gpio error configuration error
+3. Add tool interface to control sfcnand four-wire/single-wire burning
+
+2.5.9.2
+1. Modified the problem that the serial port of hallley5 burning did not print
+2. Add sfc nand ota configuration
+
+2.5.9.1
+X1830 and x2000 firmware added license area
+
+2.5.9
+1. Add jz4775 spinor dual-chip support
+2. Fix the problem of x2000_v12 mmc burning instability
+3. Add relevant clock and nku checks for safe burning
+4. Modify t31x to use ddr2 1Gb parameters
+5. Signature tool adds signature check error re-signing function
+
+2.5.8
+x2000_v12 safe burning verification passed.
+
+Add 750M ddr frequency parameters. LPDDR3_W63AH6NKB-BI_h.cfg
+Fix the problem of failure to configure emmc external clock frequency, etc. busy errors.
+
+2.5.5.1
+Remove all board-level serial port RX configurations
+
+v2.6.1.3 for speaker
+x1630 adds sn and mac burning
+
+v2.6.1.1 for speaker
+When changing sn burning type to database, get cmei to replace sn.
+
+v2.6.1 for speaker
+Configure sn length in configs/rules.cfg
+
+v2.6.0 for speaker
+Add sn rule configuration file in configs/rules.cfg directory
+
+[sn]
+prefix0=S:1 The first position of the prefix only allows the character "S", length 1
+prefix1=0-9:1 The second position of the prefix only allows the number from 0 to 9, length 1
+prefix2=0-9a-zA-Z:1 The third position of the prefix allows the number from 0 to 9, uppercase and lowercase characters from a to z, length 1
+prefix3=0-9a-zA-Z:2 The fourth and fifth positions of the prefix allow the number from 0 to 9, uppercase and lowercase characters from a to z, length 2
+prefix4=0-9a-zA-z:1 The sixth position of the prefix allows the number from 0 to 9, uppercase and lowercase characters from a to z, length 1
+prefix5=0-9z-yZ-Y:4 Prefix 7th position, allow input 0 to 9 numbers, z to y upper and lower case characters, length 4
+prefix6=0-9:1 Prefix 12th position, allow input 0 to 9 numbers, length 1
+prefix7=0-9a-cA-C:1 Prefix 13th position, allow input 0 to 9 numbers, a to c upper and lower case characters, length 1
+prefix8=0-9:2 Prefix 14th position, allow input 0 to 9 numbers, length 2
+serial0=0-9a-fA-F:4 Serial number 0-4th position, allow input 0 to 9 numbers, a to f upper and lower case characters, length 4
+portfix0= suffix, no
+
+v2.5.5b for speaker
+Add database type, get cmei and wifi address from database when burning sn
+
+v2.4b for speaker
+Update x1830 firmware, automatically match ddr type
+
+v2.3b for speaker
+1. Modify the sn-ctei box to be uneditable during burning
+2. The sn_add edit box automatically adds the current date as a prefix and changes it to manual input
+3. Add cmiit and 69code to the sn_add edit box
+
+V2.3a for speaker
+Modify the 14th hexadecimal number to be saved as decimal
+
+V2.3
+Modify the sn serial number rule to [0～F]{1}[0-9]{2}
+
+V2.2 --- The sn serial number does not meet the requirements
+1. Add gpio operation to cloner
+2. Update the gpio parameters passed down by the x1800 spl firmware tool.
+3. Change the first 2 digits of CTEI from ct to numbers, such as 18
+
+V2.1
+Modify the sn length to 16 digits.
+Rule example: 1A808180620AB00A
+
+V2.0
+A1.9a Windows version cloner.exe file is not updated.
+
+V1.9a
+1. Modify the length of sn to 18 bits.
+2. Automatically add a colon to the mac address.
+
+V1.9
+Add a colon to the mac address
+
+V1.8-v1.8a
+1. Add ctei code after sn
+2. Process the bits A-Z before the sn serial number
+
+V1.7a
+Update the firmware, modify the error in writing the mac address size, write one less block.
+
+V1.7
+Add a security lock, 0: normal, 1: some configurations are not selectable, 2, the configuration button is hidden
+
+V1.6
+1. Bad blocks are encountered when burning sn and mac, and errors occur when reading.
+
+2. Add tools to keep sn, ctei, and mac saved to separate files
+3. Add sn burning to check if there are duplicates on the same day.
+4. Save sn burning on the same day to the xlsx table
+5. A prompt box pops up when burning sn, close the prompt box to stop burning
+
+V1.5
+1. Add ctei burning and reading, and save to file
+2. Adjust the configuration file and record file path.
+3. Solve the problem of repeated erasing and re-burning of adb.
+
+V1.4
+1. Add adb to the application to erase uboot and then reboot to enter the burning mode.
+2. Firmware update, solve the error of the next partition offset address after the sfc nand erase encounters a bad block.
+
+V1.3
+1. Add saving sn and mac to xlsx table.
+2. Adjust the text to "sn:" "mac:"
+3. Solve the problem that the data is empty when the edit box pops up for the first time.
+
+V1.2
+1. Add an editable prompt box when burning sn.
+2. Add sn burning to save the current record and all records to text.
+
+V1.1
+Add sn and mac reading and display function.
+
+V0
+1. Add support for 1630 and 1830
+2. Add 1800 sfc nand sn burning
